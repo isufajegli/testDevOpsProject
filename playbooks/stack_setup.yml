@@ -1,0 +1,10 @@
+- name: Install software stack on pri-vm
+  hosts: dev
+  become: yes
+  roles:
+
+    - java
+    - docker
+    - maven
+    - jenkins
+    - kubernetes

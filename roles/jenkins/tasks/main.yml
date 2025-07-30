@@ -1,0 +1,18 @@
+- name: Add Jenkins GPG key and repository
+  shell: |
+    curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
+    echo "deb [signed-by=/usr/share/keyrings/jenkins.gpg] https://pkg.jenkins.io/debian binary/" > /etc/apt/sources.list.d/jenkins.list
+
+- name: Install Jenkins and OpenJDK
+  apt:
+    name:
+      - openjdk-17-jdk
+      - jenkins
+    state: present
+    update_cache: yes
+
+- name: Enable and start Jenkins
+  systemd:
+    name: jenkins
+    enabled: yes
+    state: started
