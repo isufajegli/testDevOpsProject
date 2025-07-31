@@ -4,10 +4,7 @@ pipeline {
         stage('Build Image in Minikube') {
             steps {
                 echo 'Building the Docker image for Minikube...'
-                sh '''
-                    eval $($(which minikube) -p minikube docker-env)
-                    docker build -t abc-tech:latest .
-                '''
+                sh 'eval $(minikube -p minikube docker-env) && docker build -t abc-tech:latest .'
             }
         }
     }
