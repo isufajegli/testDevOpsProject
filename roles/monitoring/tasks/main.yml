@@ -1,9 +1,4 @@
 
-- name: Install Prometheus and Grafana
-  hosts: docker_servers
-  become: true
-  tasks:
-
     # Install dependencies for Prometheus and Grafana
     - name: Update apt and install dependencies
       apt:
@@ -57,10 +52,10 @@
         state: started
 
     # Open firewall for Prometheus and Grafana
-    - name: Allow Prometheus and Grafana through firewall
-      ufw:
-        rule: allow
-        name: "{{ item }}"
-      loop:
-        - '3000'  # Grafana
-        - '9090'  # Prometheus
+#    - name: Allow Prometheus and Grafana through firewall
+#      ufw:
+#        rule: allow
+#        name: "{{ item }}"
+#      loop:
+#        - '3000'  # Grafana
+#        - '9090'  # Prometheus
