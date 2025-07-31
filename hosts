@@ -5,6 +5,8 @@
 
 [dev]
 pri-vm ansible_host=ec2-13-53-131-237.eu-north-1.compute.amazonaws.com ansible_user=admin srvname=pri-vm privhostname=pri-vm
-#monitoring ansible_host=ec2-13-60-50-183.eu-north-1.compute.amazonaws.com ansible_user=admin srvname=monitoring 
+
+[monitoring]
+monitoring ansible_host=ec2-13-60-50-183.eu-north-1.compute.amazonaws.com ansible_user=admin srvname=monitoring 
 
 [production]

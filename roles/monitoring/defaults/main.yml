@@ -1,0 +1,4 @@
+---
+grafana_version: "stable"
+prometheus_version: "latest"
+

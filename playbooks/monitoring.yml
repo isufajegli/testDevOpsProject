@@ -1,0 +1,6 @@
+
+- name: Install Monitoring Tools (Prometheus and Grafana)
+  hosts: monitoring
+  become: true
+  roles:
+    - monitoring
