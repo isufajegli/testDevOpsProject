@@ -1,12 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build Docker Image') {
+        stage('Build Image in Minikube') {
             steps {
-                script {
-                    echo 'Building the Docker image...'
-                    docker.build('your-dockerhub-username/abc-tech:latest', '.')
-                }
+                echo 'Building the Docker image for Minikube...'
+                sh '''
+                    eval $(minikube -p minikube docker-env)
+                    docker build -t abc-tech:latest .
+                '''
             }
         }
     }
